@@ -12,7 +12,7 @@ export default class ApiDatasource {
     axios.defaults.baseURL = this.baseURL;
   }
 
-  public static get Instance() {
+  public static get instance() {
     return this._instance || (this._instance = new this());
   }
 

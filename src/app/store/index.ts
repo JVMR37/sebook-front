@@ -1,10 +1,13 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+import bookReducer from "./bookSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    book: bookReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }).prepend(logger),
 });
 
 export type AppDispatch = typeof store.dispatch;
